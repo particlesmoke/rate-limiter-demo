@@ -12,7 +12,7 @@ io.on('connection', function(socket){
     socket.on("sendingRequest", function(){
         socket.broadcast.emit("newRequestWasSent")
         requestTimeStamp[slotCounter] = Date.now()
-        let freq = 10*1000/(requestTimeStamp[slotCounter]-requestTimeStamp[(slotCounter+1)%len])
+        let freq = len*1000/(requestTimeStamp[slotCounter]-requestTimeStamp[(slotCounter+1)%len])
         console.log(freq)
         slotCounter++
         slotCounter = slotCounter%len
