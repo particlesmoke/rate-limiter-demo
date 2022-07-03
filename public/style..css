@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+#container{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+#HAS{
+    background-color: aqua;
+    text-align: center;
+    padding: 100px;
+    z-index: 1;
+}
+.request{
+    background-color: crimson;
+    position: fixed;
+    left: 0;
+    color: white;
+    padding: 20px;
+    top: 70px;
+}
+
+.sendRequest{
+    animation-name: sendRequestAnimation;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sendRequestAnimation {
+    to {left: 50%;}
+  }
+  
