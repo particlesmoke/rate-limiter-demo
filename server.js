@@ -13,4 +13,4 @@ io.on('connection', function(socket){
 })
 app.use(express.static('public'))
 
-http.listen(80);
+http.listen(process.env.PORT || 80);
