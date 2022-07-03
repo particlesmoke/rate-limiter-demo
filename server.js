@@ -5,7 +5,7 @@ const { Server } = require('socket.io')
 const io = new Server(http)
 
 let slotCounter = 0
-let len = 10
+let len = 30
 let requestTimeStamp = []
 
 io.on('connection', function(socket){
