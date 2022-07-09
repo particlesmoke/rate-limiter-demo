@@ -6,16 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style..css">
-</head>
-<template id="requestTemplate">
-    <div class="request sendRequest">A request!</div>
-</template>
-<body>
     <script src="/socket.io/socket.io.js"></script>
-    <div id="container">
-        <div id="HAS">HAS</div>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<div id="templates">
+    <template id="requestTemplate">
+        <div class="request sendRequest">A request!</div>
+    </template>
+    <template id="failedResponse">
+        <div class="response sendResponse">
+            <img src="./Cross.png">
+        </div>
+    </template>
+    <template id="succesfulResponse">
+        <div class="response sendResponse">
+            <img src="./Tick.png">
+        </div>
+    </template>
+</div>
+<body>
+    <div id="visualisationContainer">
+        <div id="HAS">
+            HAS
+            <br> 
+            <button onclick="sendRequest()" style="margin-top: 10px;">Send request</button>
+            <span id="responseStatus">.</span>
+        </div>
     </div>
-    <button onclick="sendRequest()">Send request</button>
+    <div id="metrics">
+        <div id="requestFrequencyDiv" class="metric">Request frequency <br> <span id="requestFrequencySpan" class="metricValue">.</span></div>
+        <div id="responseFrequencyDiv" class="metric">Response frequency <br> <span id="responseFrequencySpan" class="metricValue">.</span></div>
+        <div id="throttlingRatioDiv" class="metric">Throttling Ratio <br> <span id="throttlingRatioSpan" class="metricValue">.</span></div>
+    </div>
+    <div id="chartContainer">
+    </div>
 
     <script src="index.js"></script>
 </body>
