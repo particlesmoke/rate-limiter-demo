@@ -10,7 +10,9 @@ let colors = {}
 
 let slotCounter = 0
 let len = 10
-let responseTimes = []
+let responseTimes = [0,0,0,0,0,0,0,0,0,0]
+let averageResponseTime = 0
+
 let requestCounter = 0
 let servedRequestCounter = 0
 let servedRequestTimeStamp = []
@@ -19,8 +21,12 @@ let permittedResponseTime = 4
 let windowSeconds = 5
 
 function checkOverloaded(responseTime){
-
-    let percentageOverload = 100*responseTime/permittedResponseTime
+    averageResponseTime+=responseTime/len
+    averageResponseTime-=responseTimes[slotCounter]/len
+    responseTimes[slotCounter] = responseTime
+    slotCounter++
+    slotCounter = slotCounter%len
+    let percentageOverload = 100*averageResponseTime/permittedResponseTime
     let mod = 1
     if (percentageOverload < 100)
     {
