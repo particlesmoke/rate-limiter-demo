@@ -9,9 +9,10 @@ const randomColor = require('randomcolor')
 let colors = {}
 
 let slotCounter = 0
+let len = 10
+let responseTimes = []
 let requestCounter = 0
 let servedRequestCounter = 0
-let len = 10
 let servedRequestTimeStamp = []
 let requestTimeStamp = []
 let permittedResponseTime = 4
