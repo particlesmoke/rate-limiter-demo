@@ -31,7 +31,7 @@ function checkOverloaded(responseTime){
     slotCounter = slotCounter%len
     let percentageOverload = 100*averageResponseTime/permittedResponseTime
     let mod = 1
-    if (percentageOverload < 101)
+    if (percentageOverload < 100)
     {
         mod = 1;               
     }
@@ -105,4 +105,4 @@ io.on('connection', function(socket){
     })
 })
 
-http.listen(80);
+http.listen(process.env.PORT);
