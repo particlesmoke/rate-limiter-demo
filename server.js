@@ -6,6 +6,9 @@ const io = new Server(http)
 const {v4:uuidv4} = require('uuid')
 const randomColor = require('randomcolor')
 
+app.use(express.static('public'))
+
+
 let colors = {}
 
 let slotCounter = 0
@@ -28,7 +31,7 @@ function checkOverloaded(responseTime){
     slotCounter = slotCounter%len
     let percentageOverload = 100*averageResponseTime/permittedResponseTime
     let mod = 1
-    if (percentageOverload < 100)
+    if (percentageOverload < 101)
     {
         mod = 1;               
     }
@@ -101,6 +104,5 @@ io.on('connection', function(socket){
         io.to(socket.id).emit("requestStatus", requestMetrics)
     })
 })
-app.use(express.static('public'))
 
-http.listen(process.env.PORT || 80);
+http.listen(80);
